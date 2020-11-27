@@ -2,8 +2,8 @@ import sys
 from dinic_logging import *
 from collections import deque
 
-S = 0
-T = 1
+S = 's'
+T = 't'
 
 def make_auxiliar_network(edges):
     """Create an auxiliar network from a edges list
@@ -18,7 +18,6 @@ def make_auxiliar_network(edges):
         key = fl.popleft()
         for e in edges:
             if e['used']: continue
-            
             r = e['capacity'] - e['flow']
             if key == e['first'] and  r > 0:
                 v = {'id':e['last'], 'direction':'F'}
@@ -180,7 +179,8 @@ def read_edges(f=sys.stdin):
     k = ['first', 'last', 'capacity', 'flow', 'used']
     lines = f.readlines()
     for line in lines:
-        v = [int(s) for s in line.split(" ")] + [0, False]
+        v = [s for s in line.split(" ")] + [0, False]
+        v[2] = int(v[2])
         edges.append(dict(zip(k,v)))
                       
 
