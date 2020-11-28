@@ -1,0 +1,390 @@
+--------------------------------------------------------------------
+Solving max flow for team MI using Push Relable Algorithm
+Nodes:
+MI
+CSK
+DC
+KKR
+MI-CSK
+MI-KKR
+MI-DC
+CSK-DC
+SRC
+SINK
+Edges:
+SRC --> CSK-DC
+    capacity : 2
+    load : 2
+CSK --> SINK
+    capacity : 11
+    load : 0
+KKR --> SINK
+    capacity : 13
+    load : 0
+DC --> SINK
+    capacity : 14
+    load : 2
+MI-CSK --> CSK
+    capacity : 10000
+    load : 0
+MI-CSK --> MI
+    capacity : 10000
+    load : 0
+MI-KKR --> KKR
+    capacity : 10000
+    load : 0
+MI-KKR --> MI
+    capacity : 10000
+    load : 0
+MI-DC --> DC
+    capacity : 10000
+    load : 0
+MI-DC --> MI
+    capacity : 10000
+    load : 0
+CSK-DC --> DC
+    capacity : 10000
+    load : 2
+CSK-DC --> CSK
+    capacity : 10000
+    load : 0
+maxflow: 2
+--------------------------------------------------------------------
+Solving max flow for team MI using Ford Fulkerson Algorithm
+Nodes:
+MI
+CSK
+DC
+KKR
+MI-CSK
+MI-KKR
+MI-DC
+CSK-DC
+SRC
+SINK
+Edges:
+CSK --> SINK
+    capacity : 11
+KKR --> SINK
+    capacity : 13
+DC --> SINK
+    capacity : 14
+    load : 2
+MI-CSK --> CSK
+    capacity : 10000
+MI-CSK --> MI
+    capacity : 10000
+MI-KKR --> KKR
+    capacity : 10000
+MI-KKR --> MI
+    capacity : 10000
+MI-DC --> DC
+    capacity : 10000
+MI-DC --> MI
+    capacity : 10000
+CSK-DC --> DC
+    capacity : 10000
+    load : 2
+CSK-DC --> CSK
+    capacity : 10000
+SRC --> CSK-DC
+    load : 2
+maxflow: 2
+--------------------------------------------------------------------
+Solving max flow for team MI using Dinics Algorithm
+maxflow: 2
+--------------------------------------------------------------------
+Solving max flow for team CSK using Push Relable Algorithm
+Nodes:
+MI
+CSK
+DC
+KKR
+MI-CSK
+MI-KKR
+MI-DC
+CSK-DC
+SRC
+SINK
+Edges:
+SRC --> MI-KKR
+    capacity : 6
+    load : 5
+SRC --> MI-DC
+    capacity : 1
+    load : 1
+KKR --> SINK
+    capacity : 5
+    load : 5
+DC --> SINK
+    capacity : 6
+    load : 1
+MI-CSK --> CSK
+    capacity : 10000
+    load : 0
+MI-CSK --> MI
+    capacity : 10000
+    load : 0
+MI-KKR --> KKR
+    capacity : 10000
+    load : 5
+MI-KKR --> MI
+    capacity : 10000
+    load : 0
+MI-DC --> DC
+    capacity : 10000
+    load : 1
+MI-DC --> MI
+    capacity : 10000
+    load : 0
+CSK-DC --> DC
+    capacity : 10000
+    load : 0
+CSK-DC --> CSK
+    capacity : 10000
+    load : 0
+maxflow: 6
+--------------------------------------------------------------------
+Solving max flow for team CSK using Ford Fulkerson Algorithm
+Nodes:
+MI
+CSK
+DC
+KKR
+MI-CSK
+MI-KKR
+MI-DC
+CSK-DC
+SRC
+SINK
+Edges:
+SRC --> MI-KKR
+    capacity : 6
+    load : 5
+DC --> SINK
+    capacity : 6
+    load : 1
+MI-CSK --> CSK
+    capacity : 10000
+MI-CSK --> MI
+    capacity : 10000
+MI-KKR --> KKR
+    capacity : 10000
+    load : 5
+MI-KKR --> MI
+    capacity : 10000
+MI-DC --> DC
+    capacity : 10000
+    load : 1
+MI-DC --> MI
+    capacity : 10000
+CSK-DC --> DC
+    capacity : 10000
+CSK-DC --> CSK
+    capacity : 10000
+KKR --> SINK
+    load : 5
+SRC --> MI-DC
+    load : 1
+maxflow: 6
+--------------------------------------------------------------------
+Solving max flow for team CSK using Dinics Algorithm
+maxflow: 6
+--------------------------------------------------------------------
+Solving max flow for team DC using Push Relable Algorithm
+Nodes:
+MI
+CSK
+DC
+KKR
+MI-CSK
+MI-KKR
+MI-DC
+CSK-DC
+SRC
+SINK
+Edges:
+SRC --> MI-CSK
+    capacity : 1
+    load : 0
+SRC --> MI-KKR
+    capacity : 6
+    load : 2
+KKR --> SINK
+    capacity : 2
+    load : 2
+MI-CSK --> CSK
+    capacity : 10000
+    load : 0
+MI-CSK --> MI
+    capacity : 10000
+    load : 0
+MI-KKR --> KKR
+    capacity : 10000
+    load : 2
+MI-KKR --> MI
+    capacity : 10000
+    load : 0
+MI-DC --> DC
+    capacity : 10000
+    load : 0
+MI-DC --> MI
+    capacity : 10000
+    load : 0
+CSK-DC --> DC
+    capacity : 10000
+    load : 0
+CSK-DC --> CSK
+    capacity : 10000
+    load : 0
+maxflow: 2
+--------------------------------------------------------------------
+Solving max flow for team DC using Ford Fulkerson Algorithm
+Nodes:
+MI
+CSK
+DC
+KKR
+MI-CSK
+MI-KKR
+MI-DC
+CSK-DC
+SRC
+SINK
+Edges:
+SRC --> MI-CSK
+    capacity : 1
+SRC --> MI-KKR
+    capacity : 6
+    load : 2
+MI-CSK --> CSK
+    capacity : 10000
+MI-CSK --> MI
+    capacity : 10000
+MI-KKR --> KKR
+    capacity : 10000
+    load : 2
+MI-KKR --> MI
+    capacity : 10000
+MI-DC --> DC
+    capacity : 10000
+MI-DC --> MI
+    capacity : 10000
+CSK-DC --> DC
+    capacity : 10000
+CSK-DC --> CSK
+    capacity : 10000
+KKR --> SINK
+    load : 2
+maxflow: 2
+--------------------------------------------------------------------
+Solving max flow for team DC using Dinics Algorithm
+maxflow: 2
+--------------------------------------------------------------------
+Solving max flow for team KKR using Push Relable Algorithm
+Nodes:
+MI
+CSK
+DC
+KKR
+MI-CSK
+MI-KKR
+MI-DC
+CSK-DC
+SRC
+SINK
+Edges:
+SRC --> MI-CSK
+    capacity : 1
+    load : 1
+SRC --> MI-DC
+    capacity : 1
+    load : 1
+SRC --> CSK-DC
+    capacity : 2
+    load : 2
+MI --> SINK
+    capacity : 1
+    load : 0
+CSK --> SINK
+    capacity : 4
+    load : 1
+DC --> SINK
+    capacity : 7
+    load : 3
+MI-CSK --> CSK
+    capacity : 10000
+    load : 1
+MI-CSK --> MI
+    capacity : 10000
+    load : 0
+MI-KKR --> KKR
+    capacity : 10000
+    load : 0
+MI-KKR --> MI
+    capacity : 10000
+    load : 0
+MI-DC --> DC
+    capacity : 10000
+    load : 1
+MI-DC --> MI
+    capacity : 10000
+    load : 0
+CSK-DC --> DC
+    capacity : 10000
+    load : 2
+CSK-DC --> CSK
+    capacity : 10000
+    load : 0
+maxflow: 4
+--------------------------------------------------------------------
+Solving max flow for team KKR using Ford Fulkerson Algorithm
+Nodes:
+MI
+CSK
+DC
+KKR
+MI-CSK
+MI-KKR
+MI-DC
+CSK-DC
+SRC
+SINK
+Edges:
+MI --> SINK
+    capacity : 1
+CSK --> SINK
+    capacity : 4
+    load : 1
+DC --> SINK
+    capacity : 7
+    load : 3
+MI-CSK --> CSK
+    capacity : 10000
+    load : 1
+MI-CSK --> MI
+    capacity : 10000
+MI-KKR --> KKR
+    capacity : 10000
+MI-KKR --> MI
+    capacity : 10000
+MI-DC --> DC
+    capacity : 10000
+    load : 1
+MI-DC --> MI
+    capacity : 10000
+CSK-DC --> DC
+    capacity : 10000
+    load : 2
+CSK-DC --> CSK
+    capacity : 10000
+SRC --> MI-CSK
+    load : 1
+SRC --> MI-DC
+    load : 1
+SRC --> CSK-DC
+    load : 2
+maxflow: 4
+--------------------------------------------------------------------
+Solving max flow for team KKR using Dinics Algorithm
+maxflow: 4

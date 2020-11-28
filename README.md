@@ -1,5 +1,7 @@
 # flow-problem
 
-Given cricket teams and thir
+## To run:
 
-`Which teams have a chance of finishing the season with most wins?`
+- `cd src`<br />
+- `python main.py`<br />
+### Log is dumped in log.txt file, this log contains capacities and loads on various edges.<br />
