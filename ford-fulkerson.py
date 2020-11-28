@@ -1,33 +1,28 @@
-# https://medium.com/swlh/real-world-network-flow-cricket-elimination-problem-55a3036a5d60
 class Edge(object):
-    def __init__(self, u, v, capacity):
+    def __init__(self, u: str, v: str, capacity: int):
         # initializing a new edge object
         self.source = u
         self.destination = v
         self.capacity = capacity
-    
+
     def __repr__(self):
         return "%s-->%s:%s" % (self.source, self.destination, self.capacity)
 
+
 class FlowGraph(object):
     def __init__(self):
-        # using an adjacency list representation of for a graph
         self.adjMat = {}
-        # map to track the flow (much easier than using an array)
         self.flow = {}
 
     def add_node(self, node):
-        # adds a node with an empty list as it has no edges
         self.adjMat[node] = []
 
     def get_edges(self, node):
-        # returns the edges that originate from the desired node
         return self.adjMat[node]
 
-    def add_edge(self, u, v, capacity=0):
+    def add_edge(self, u: str, v: str, capacity: int = 0):
         # we cannot have self loops in this graph
-        if u == v:
-            raise ValueError("u == v : no self loops allowed!")
+        if u == v: raise ValueError("u == v : no self loops allowed! (u={},v={})".format(u, v))
         edge = Edge(u, v, capacity)
         backEdge = Edge(v, u, 0)
         # not that the peer attribute need not be defined in the edge class
@@ -42,7 +37,7 @@ class FlowGraph(object):
         self.flow[edge] = 0
         self.flow[backEdge] = 0
 
-    def get_augmenting_path(self, s, t, path, set_path):
+    def get_augmenting_path(self, s, t, path=[], set_path=set()):
         # this method uses DFS to find an augmenting path
         if s == t:
             return path
@@ -51,14 +46,12 @@ class FlowGraph(object):
             leftover = edge.capacity - self.flow[edge]
             if leftover > 0 and (edge, leftover) not in set_path:
                 set_path.add((edge, leftover))
-                result = self.get_augmenting_path(
-                    edge.destination, t, path + [(edge, leftover)], set_path
-                )
+                result = self.get_augmenting_path(edge.destination, t, path + [(edge, leftover)], set_path)
                 if result != None:
                     return result
 
     def ford_fulkerson(self, s, t):
-        aug_path = self.get_augmenting_path(s, t, [], set())
+        aug_path = self.get_augmenting_path(s, t)
         # ford-fulkerson runs while there exists and s-t path
         while aug_path != None:
             # calculating the bottleneck capacity
@@ -68,15 +61,17 @@ class FlowGraph(object):
                 self.flow[edge] += flow
                 # decreasing flow on peer
                 self.flow[edge.peer] -= flow
+                print(edge,edge.peer)
             aug_path = self.get_augmenting_path(s, t, [], set())
         # calculating the maxflow - as the sum of flow on edges leaving 's'
         maxflow = sum(self.flow[edge] for edge in self.get_edges(s))
         return maxflow
 
+
 def main():
     g = FlowGraph()
-    nodes_list = ['s', 'CSK-DC', 'CSK-KKR', 'KKR-DC', 'CSK', 'DC', 'KKR', 't']
-    [g.add_node(node) for node in nodes_list]
+    # nodes_list =
+    [g.add_node(node) for node in ['s', 'CSK-DC', 'CSK-KKR','KKR-DC', 'CSK', 'DC', 'KKR', 't']]
 
     # adding the first set of edges
     g.add_edge('s', 'CSK-DC', 2)
