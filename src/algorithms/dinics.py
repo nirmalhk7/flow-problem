@@ -191,5 +191,7 @@ def solve_dinic(team, log):
     log.write('maxflow: {}\n'.format(maxflow))
     if maxflow>=rem:
         print("Dinics Algorithm: " +team+" is not eliminated")
+        return False
     else:
         print("Dinics Algorithm: " +team+" is eliminated")
+        return True

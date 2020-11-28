@@ -3,6 +3,7 @@ from algorithms.utils import *
 from algorithms.push_relable import solve_max_flow_pl, conclusion
 from algorithms.ford_fulkerson import solve_max_flow_ff, conclusion
 from algorithms.dinics import solve_dinic
+import time
 teams = ['MI', 'CSK', 'DC', 'KKR']
 log = open('log.txt', 'w')
 
@@ -56,27 +57,43 @@ def push_relable(team):
     print("Push Relable maxflow: " + str(conclusion(g)))
     if conclusion(g) >= rem:
         print("Push Relable Algorithm: " +team+" is not eliminated")
+        return False
     else:
         print("Push Relable Algorithm: " +team+" is eliminated")
+        return True
 def ff(team):
     g, rem = read_ip(team)
     solve_max_flow_ff(g, g.get_node("SRC"), g.get_node("SINK"))
     log.write('--------------------------------------------------------------------\n')
     log.write('Solving max flow for team {} using Ford Fulkerson Algorithm\n'.format(team))
     log.write(str(g))
-    log.write('maxflow: {}\n'.format(conclusion(g)))
-    print("Ford Fulkerson maxflow: "+ str(conclusion(g)))
+    concl= conclusion(g)
+    log.write('maxflow: {}\n'.format(concl))
+    print("Ford Fulkerson maxflow: "+ str(concl))
     if conclusion(g) >= rem:
         print("Ford Fulkerson Algorithm: " +team+" is not eliminated")
+        return False
     else:
         print("Ford Fulkerson Algorithm: " +team+" is eliminated")
+        return True
 
 
 if __name__ == "__main__":
     for team in teams:
         print('--------------------------------------------------------------------')
-        push_relable(team)
-        ff(team)
-        solve_dinic(team, log)
+        times={'Ford Fulkerson':time.perf_counter(),'Push Relable':time.perf_counter(),'Dinics':time.perf_counter()}
+        a1=push_relable(team)
+        times['Push Relable']=time.perf_counter()-times['Push Relable']
+        a2=ff(team)
+        times['Ford Fulkerson']=time.perf_counter()-times['Ford Fulkerson']
+        a3=solve_dinic(team, log)
+        times['Dinics']=time.perf_counter()-times['Dinics']
+        
+        if(a1==a2==a3):
+            print("\nAll methods return same answer. Time to execute: ")
+            times=dict(sorted(times.items(),key=lambda item: item[1]))
+            for i in times.keys():
+                print("{}: {}".format(i,round(times[i],5)))
+        
 log.close()
 
