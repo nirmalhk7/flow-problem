@@ -1,5 +1,6 @@
 # flow-problem
 
-How to run dinic.py
-
-        python3 dinic.py /path/to/file
+To run:
+`cd src`
+`python main.py`
+Log in dumped in log.txt file, this log contains capacities and loads on various edges.
