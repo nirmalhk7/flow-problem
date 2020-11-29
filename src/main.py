@@ -44,7 +44,7 @@ def read_ip(team):
     for pair in L1:
         teams = pair.split("-")
         g.add_edge(pair, teams[1], {"capacity": 10000})
-        g.add_edge(pair, teams[0], {"capacity": 10000})             
+        g.add_edge(pair, teams[0], {"capacity": 10000})
     return g, rem
 
 def push_relable(team):
@@ -61,6 +61,7 @@ def push_relable(team):
     else:
         print("Push Relable Algorithm: " +team+" is eliminated")
         return True
+
 def ff(team):
     g, rem = read_ip(team)
     solve_max_flow_ff(g, g.get_node("SRC"), g.get_node("SINK"))
@@ -94,6 +95,5 @@ if __name__ == "__main__":
             times=dict(sorted(times.items(),key=lambda item: item[1]))
             for i in times.keys():
                 print("{}: {}".format(i,round(times[i],5)))
-        
 log.close()
 
